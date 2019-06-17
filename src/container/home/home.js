@@ -8,6 +8,12 @@ class Home extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    name: state.name
+    name: state.home.name
 })
-export default connect(mapStateToProps, null)(Home)
+const mapDispatchToProps = dispatch => ({
+    getHomeList() {
+        // 此处使用action里的方法
+        // dispatch(getHomeList);
+    }
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
