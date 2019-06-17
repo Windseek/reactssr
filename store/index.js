@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 // const reducer = (state = {name: "yanglongfei"}, action) => {
 //     return state;
 // }
-import { reducer as homeReducer } from "@src/container/home/store/reducer.js"
+import { reducer as homeReducer } from "@src/container/home/store"
 const reducer = combineReducers({
     home: homeReducer
 })
