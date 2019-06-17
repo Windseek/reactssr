@@ -5,17 +5,20 @@ const routeConfig = [
     {
         path: '/',
         component: Login,
-        exact: true
+        exact: true,
+        key: 'root'
     },
     {
         path: '/login',
         component: Login,
-        exact: true
+        exact: true,
+        key: 'login'
     },
     {
         path: '/home',
         component: Home,
-        exact: true
+        exact: true,
+        key: 'home'
     }
 ]
 export default routeConfig  
