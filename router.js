@@ -19,7 +19,7 @@ const routeConfig = [
         component: Home,
         exact: true,
         key: 'home',
-        loadData: () => Home.loadData()
+        loadData: Home.loadData
     }
 ]
 export default routeConfig  

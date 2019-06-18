@@ -16,12 +16,14 @@ class Home extends React.Component {
         );
     }
     componentDidMount(){
-        this.props.getHomeList();
+        if(!this.props.list.length){
+            this.props.getHomeList();
+        }
     }
 }
 Home.loadData = (store) => {
-    store.dispatch(getHomeList());
-    // this.props.getHomeList();
+    return store.dispatch(getHomeList());
+    // return this.props.getHomeList();
 }
 const mapStateToProps = state => ({
     list: state.home.list,
@@ -29,9 +31,6 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => ({
     getHomeList() {
-        // 此处使用action里的方法
-        // dispatch(getHomeList);
-        console.log("发送ajax请求。。。");
         dispatch(getHomeList());
     }
 })

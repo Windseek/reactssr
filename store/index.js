@@ -8,8 +8,11 @@ const reducer = combineReducers({
     home: homeReducer
 })
 
-const getStore = () => {
+export const getStore = () => {
     return createStore(reducer, applyMiddleware(thunk));
 }
 
-export default getStore
+export const getClientStore = () => {
+    const defaultStore = window.context;
+    return createStore(reducer, defaultStore, applyMiddleware(thunk));
+}
