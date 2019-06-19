@@ -4,13 +4,12 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import routes from '@root/router.js';
 import { Provider } from 'react-redux';
 import { getClientStore } from '@root/store';
+import { renderRoutes } from 'react-router-config';
 
 ReactDom.hydrate(
     <Provider store={getClientStore()}>
         <BrowserRouter>
-            {
-                routes.map((route, i) => (<Route {...route}/>))
-            }
+            {renderRoutes(routes)}
         </BrowserRouter>
     </Provider>,
     document.getElementById("root")

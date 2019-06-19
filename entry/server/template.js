@@ -2,6 +2,7 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 
 const getTemplate = (req, res, routes, store, content) => {
     return `<html>
@@ -21,7 +22,7 @@ const send = function(req, res, routes, store){
         const content = renderToString(
             <Provider store={store} >
                 <StaticRouter location={req.path} context={{}}>
-                    {routes.map((route, i) => (<Route {...route}/>))}
+                    {renderRoutes(routes)}
                 </StaticRouter>
             </Provider>
         );

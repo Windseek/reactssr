@@ -3,10 +3,15 @@ import send from './template';
 import { getStore } from '@root/store';
 import routes from '@root/router.js';
 import { matchRoutes } from 'react-router-config';
+import proxy from 'express-http-proxy';
 
 const app = express()
 app.use(express.static('public'));
-
+app.use('/api', proxy('http://47.95.113.63',{
+    proxyReqPathResolver: function (req) {
+        return "/ssr/api" + req.url;
+    }
+}))
 
 app.get('*', (req, res) => {
     const store = getStore();
@@ -16,7 +21,7 @@ app.get('*', (req, res) => {
      *  执行loadData方法
      * */
     matchedRoutes.map((item) => {
-        promises.push(item.route.loadData(store));
+        item.route.loadData?promises.push(item.route.loadData(store)):'';
     });
     Promise.all(promises).then(()=> {
         send(req, res, routes, store)

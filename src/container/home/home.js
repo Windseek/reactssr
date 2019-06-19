@@ -16,9 +16,9 @@ class Home extends React.Component {
         );
     }
     componentDidMount(){
-        if(!this.props.list.length){
+        // if(!this.props.list.length){
             this.props.getHomeList();
-        }
+        // }
     }
 }
 Home.loadData = (store) => {
