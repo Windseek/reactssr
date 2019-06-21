@@ -8,11 +8,17 @@
 安装步骤：
 
 1、先安装初始化工具windssr，npm install windssr -g
+
 2、切换到想要初始化的文件夹下，执行 windssr -init 或者 windsrr -i
+
 3、根据提示选择同构的模板，提供三个，react，vue，angular，这个项目的模板是react
+
 4、然后填写项目名称，完成初始化
+
 5、根据提示，cd/your projectname
+
 6、npm install 安装脚手架的依赖
+
 7、npm run all 运行脚手架
 
 
