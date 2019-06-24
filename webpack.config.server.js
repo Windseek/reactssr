@@ -13,6 +13,26 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
-    externals: [nodeExternals()]
+    externals: [nodeExternals()],
+    module: {
+        rules: [
+            {
+                test: /\.css?$/,
+                
+                use: ['isomorphic-style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        importLoader: 1,
+                        modules: true,
+                        localIdentName: '[name]_[loacal]_[hash:base64:5]'
+                    }
+                }
+
+                ],
+                exclude: /node-modules/,
+
+            }
+        ]
+    }
 };
 module.exports = merge(baseconfig, config);
